@@ -6,8 +6,7 @@ import re
 from bs4 import BeautifulSoup
 import requests
 from random import randint
-
-
+import random
 
 youtube_links = []
 
@@ -22,9 +21,12 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         channel = message.channel
         if message.content.startswith('/who'):
-            with open(str(randint(1, 12)) + '.png', 'rb') as f:
+            with open('naruto_pics/' + str(randint(1, 12)) + '.png', 'rb') as f:
                 picture = discord.File(f)
                 await channel.send(file=picture)
+        if message.content.startswith('/motivate'):
+          with open('motivation/' + random.choice(os.listdir("motivation")), 'rb') as f:
+            await channel.send(file=discord.File(f))
         if message.content.startswith('/roll'):
             if message.content == '/roll':
                 await channel.send('{0.author} rolls {1}'.format(message, randint(0, 100)))
@@ -59,10 +61,6 @@ class MyClient(discord.Client):
 
 
 client = MyClient()
-
-#Bottom of Main.py
 keep_alive()
-
 TOKEN = os.environ['DISCORD_BOT_SECRET']
-
 client.run(TOKEN)
