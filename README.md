@@ -7,6 +7,7 @@ rendesvouz-bot is a discord bot for fun
 ### /roll x-y - random number from x to y
 ### /flip - flip a coin. randomly get heads or tails
 ### /yt - random funny youtube video
+### /motivate - random ussr poster
 
 ## how to get it on your server
 in order to setup this bot on your server you can either email me here: fbokov@icloud.com or just clone the project and host a bot yourself
